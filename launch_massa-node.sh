@@ -6,9 +6,10 @@ export RUST_BACKTRACE
 START_DATETIME=$(date +"%Y/%m/%d-%H:%M.%S")
 #PATH_MASSANODE="/root/massa-running-node/massa/massa-node/"
 #PATH_MASSANODE="/home/enola/MASSA/massa_dl-as-is/massa-2.4-202411/"
-PATH_MASSANODE="/home/enola/MASSA/massa_dl-as-is/massa-2.4-202411/massa/massa-node/"
+#PATH_MASSANODE="/home/enola/MASSA/massa_dl-as-is/massa-2.4-202411/massa/massa-node/"
+PATH_MASSANODE="/root/massa/massa-node/"
 BIN_MASSANODE=$PATH_MASSANODE"massa-node"
-PATH_MASSASCRIPT=/home/enola/massa-scripts
+PATH_MASSASCRIPT=/root/massa-scripts
 PASSWORD_MASSANODE=$(cat $PATH_MASSASCRIPT'/massa-node.pwd')
 
 stty -echoctl # hide ^C

@@ -11,9 +11,10 @@
 #
 NMAS_TOLEAVE=3
 NMAS_PER_ROLLS=100
-PATH_MASSACLIENT=/home/enola/MASSA/massa_dl-as-is/massa-running-node/massa-client/
+PATH_MASSACLIENT='/root//massa/massa-client/'
 BIN_MASSACLIENT=$PATH_MASSACLIENT"massa-client"
-PATH_MASSASCRIPT=/home/enola/massa-scripts
+PATH_MASSASCRIPT='/root/massa-scripts'
+#BIN_MASSACLIENT=${PATH_MASSACLIENT}/mas
 PASSWORD_MASSACLIENT=$(cat $PATH_MASSASCRIPT'/massa-client.pwd')
 ADDR_WALLET=$(cat $PATH_MASSASCRIPT'/massa-wallet.addr')
 
@@ -22,8 +23,8 @@ ADDR_WALLET=$(cat $PATH_MASSASCRIPT'/massa-wallet.addr')
 
 cd $PATH_MASSACLIENT
 
-nrolls=$(./massa-client -p $PASSWORD_MASSACLIENT 'get_addresses' $ADDR_WALLET | grep Rolls | grep -oP "final=\K\d+")
-nmas=$(./massa-client -p $PASSWORD_MASSACLIENT 'get_addresses' $ADDR_WALLET | grep Balance | grep -oP "final=\K\d+")
+nrolls=$(${BIN_MASSACLIENT} -p $PASSWORD_MASSACLIENT 'get_addresses' $ADDR_WALLET | grep Rolls | grep -oP "final=\K\d+")
+nmas=$(${BIN_MASSACLIENT} -p $PASSWORD_MASSACLIENT 'get_addresses' $ADDR_WALLET | grep Balance | grep -oP "final=\K\d+")
 #echo "Found $nmas MAS in the $ADDR_WALLET"
 
 nmas_mini=$(( NMAS_TOLEAVE + NMAS_PER_ROLLS ))
